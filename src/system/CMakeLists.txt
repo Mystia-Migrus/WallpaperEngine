@@ -1,0 +1,22 @@
+
+set(SUBLIB_SYSTEM_NAME "WPE_System.lib")
+
+message("------------- SUBLIBRARY ------------------")
+message("Libaray Name: ${SUBLIB_SYSTEM_NAME}")
+
+file(GLOB SYSTEM_SOURCES CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+)
+
+if(NOT SYSTEM_SOURCES)
+    message(FATAL_ERROR "No .cpp source files found in ${CMAKE_CURRENT_SOURCE_DIR}")
+endif()
+
+add_library(${SUBLIB_SYSTEM_NAME} STATIC ${SYSTEM_SOURCES})
+
+# 把本目录创建的库名传回主 CMakeLists.txt，供主程序链接。
+list(APPEND PROJECT_SUBDIRECTORY_LIBRARIES "${SYSTEM_TARGET_NAME}")
+set(PROJECT_SUBDIRECTORY_LIBRARIES
+    "${PROJECT_SUBDIRECTORY_LIBRARIES}"
+    PARENT_SCOPE
+)
