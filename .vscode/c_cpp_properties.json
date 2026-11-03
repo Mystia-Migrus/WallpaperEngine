@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${default}",
+                "includes",
+                "utils",
+                "utils/DirectXTK/includes"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "\"D:\\Programme\\Visual Studio 2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe\"",
+            "cStandard": "c23",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
