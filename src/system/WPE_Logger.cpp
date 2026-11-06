@@ -3,7 +3,7 @@
 using namespace WPE_NAMESPACE::Log;
 
 /*********************************************************************** */
-GlobalLogger& GlobalLogger::GetInstance() const {
+GlobalLogger& GlobalLogger::GetInstance() {
     static GlobalLogger logger;
     return logger;
 }
@@ -18,6 +18,11 @@ GlobalLogger::~GlobalLogger() {
 void GlobalLogger::Log(const LogMessage& message) {
     for(auto& slot: this->slots) {
         slot->Write(message);
+    }
+}
+
+void GlobalLogger::Flush() {
+    for(auto& slot: this->slots) {
         slot->Flush();
     }
 }

@@ -76,7 +76,7 @@ namespace Base {
         bool status;
 
         std::array<char, WPE_CONSOLEIO_DEFAULT_BUFFERSIZE> buffer;
-        unsigned int length;
+        unsigned int length = 0;
     };
 
     

@@ -55,11 +55,12 @@ namespace Log {
     public:
         ~GlobalLogger();
         
-        GlobalLogger& GetInstance() const;
+        static GlobalLogger& GetInstance();
 
     public:
         void Log(const LogMessage& message);
-
+        void Flush();
+        
         void AddLogSlot(std::unique_ptr<LogSlot>& slot);
     private:
         

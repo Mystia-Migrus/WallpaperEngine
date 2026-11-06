@@ -6,7 +6,8 @@
                 "${default}",
                 "includes",
                 "utils",
-                "utils/DirectXTK/includes"
+                "utils/DirectXTK/includes",
+                "src"
             ],
             "defines": [
                 "_DEBUG",

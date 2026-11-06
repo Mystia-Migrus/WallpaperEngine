@@ -39,7 +39,7 @@
 * Render 层: D3D12 渲染
 * Media 层: 资源读取
 * UI 层: 配置界面
-* System 层: 日志, 配置, 资源缓存
+* System 层: 日志(WPE_Logger), 配置(WPE_config), 资源缓存
 
 * 配置文件采用 Json
 ## MVP(最小可行产品)设计
