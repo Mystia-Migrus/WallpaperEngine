@@ -36,12 +36,17 @@
 
 * App 层: 窗口启动, 状态切换, 程序配置
 * Wallpaper 层: 资源管理
-* Render 层: D3D12 渲染
-* Media 层: 资源读取
 * UI 层: 配置界面
+* Render 层: D3D12 渲染
 * System 层: 日志(WPE_Logger), 配置(WPE_config), 资源缓存
 
 * 配置文件采用 Json
+
+## 架构设计
+
+### System 层
+* 日志
+
 ## MVP(最小可行产品)设计
 
 ### 核心功能

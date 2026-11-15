@@ -1,7 +1,8 @@
 #include <system/WPE_resource.h>
 #include <image/stb_image.h>
 
-bool WPE::Resource::LoadImage(const std::string& image, WPE::Resource::Image& image_data) {
+using namespace WPE_NAMESPACE::Resource;
+bool _LoadImage(const std::string& image, WPE::Resource::Image& image_data) {
     int channel;
 
     image_data.data = stbi_load(image.c_str(), &image_data.width, &image_data.height, &channel, 0);
@@ -22,6 +23,32 @@ bool WPE::Resource::LoadImage(const std::string& image, WPE::Resource::Image& im
         image_data.channel = IMAGE_CHANNEL_RGBA;
         break;
     }
-
+    
     return true;
+}
+
+ResourceCache& ResourceCache::GetInstance() {
+    static ResourceCache cacher;
+    return cacher;
+}
+
+ImagePtr ResourceCache::LoadImage(const std::string& key, const WPE::Path::Path& filename) {
+    Image image;
+    if(_LoadImage(filename.Native(), image)) {
+        return nullptr;
+    }
+
+    auto& result = this->images.insert(std::pair<std::string, Image>(key, image));
+    if(result.second){
+        return std::make_shared<Image>(result.first->second);
+    }
+
+    return nullptr;
+}
+
+ImagePtr ResourceCache::LoadImage(const std::string& key) {
+    auto& result = this->images.find(key);
+    if(result == this->images.end())
+        return nullptr;
+    return std::make_shared<Image>(result->second);
 }

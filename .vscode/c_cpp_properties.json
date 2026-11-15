@@ -3,11 +3,12 @@
         {
             "name": "Win32",
             "includePath": [
-                "${default}",
                 "includes",
-                "utils",
+                "utils/",
+                "utils/microsoft.direct3d.d3d12.1.620.2/include",
                 "utils/DirectXTK/includes",
-                "src"
+                "src",
+                "${default}"
             ],
             "defines": [
                 "_DEBUG",

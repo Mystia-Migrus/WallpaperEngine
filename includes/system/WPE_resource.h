@@ -6,6 +6,9 @@
 
 WPE_NAMESPACE_BEGIN
 namespace Resource {
+    
+/*************************** */
+// Image
     enum ImageChannel {
         IMAGE_CHANNEL_GREY,
         IMAGE_CHANNEL_GREY_ALPHA,
@@ -20,7 +23,18 @@ namespace Resource {
         unsigned char* data;
     };
 
-    bool LoadImage(const std::string& image, Image& image_data); 
+    using ImagePtr = std::shared_ptr<const Image>;
+
+    class ResourceCache {
+    public:
+        static ResourceCache& GetInstance();
+
+        ImagePtr LoadImage(const std::string& key, const WPE::Path::Path& filename);
+        ImagePtr LoadImage(const std::string& key);
+        
+    private:
+        std::unordered_map<std::string, Image> images;
+    };
 }
 WPE_NAMESPACE_END
 #endif

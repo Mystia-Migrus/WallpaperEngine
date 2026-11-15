@@ -7,6 +7,7 @@
 #include <memory>
 #include <array>
 #include <stdexcept>
+#include <unordered_map>
 
 #define WPE_NAMESPACE WPE
 #define WPE_NAMESPACE_BEGIN namespace WPE_NAMESPACE {
