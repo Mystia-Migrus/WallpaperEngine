@@ -4,7 +4,7 @@
 #include <sdkddkver.h>
 #include <windows.h>
 
-#include <d3dx12/d3dx12.h>
+#include <directx/d3dx12/d3dx12.h>
 #include <wrl.h>
 #include <dxgi1_6.h>
 #include <DirectXMath.h>

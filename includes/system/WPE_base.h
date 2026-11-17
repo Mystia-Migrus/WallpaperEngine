@@ -16,6 +16,12 @@
 #define WPE_DEFAULT_BUFFERSIZE 512
 #define WPE_CONSOLEIO_DEFAULT_BUFFERSIZE WPE_DEFAULT_BUFFERSIZE
 
+#ifdef _M_X64
+#define PTR_ADDRESS unsigned long long
+#else
+#define PTR_ADDRESS unsigned int
+#endif
+
 WPE_NAMESPACE_BEGIN
 namespace Base {
 
